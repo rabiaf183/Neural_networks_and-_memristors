@@ -7,10 +7,12 @@ import csv #for excel
 import os # for interaction with the OS to create directory 
 
 # Define the file to save images
-image_folder = 'generated_images/' #to save image
-csv_filename = 'rectangle_angles.csv' # to save angles 
+rectangles_folder = 'generated_images/' #to save image
+csv_filename= 'rectangle_angles.csv' # to save angles 
 
-os.makedirs(image_folder, exist_ok=True)  #exit_ok if directory already exist then no errors should raise
+os.makedirs(rectangles_folder, exist_ok=True) 
+#exit_ok if directory already exist then no errors should raise
+os.makedirs(csv_filename, exist_ok=True)
 
 angles = [] #empty array 
 
@@ -51,14 +53,14 @@ for i in range(100):
 
  # Display the rotated rectangle with text
    
-    cv2.imshow('image' , image)
-    cv2.waitKey(0) #keybard binding, if any key is pressed then it will continue the execution
+    cv2.imshow('my_rectangle_images' , image) 
+    cv2.waitKey(0) #keybard binding, if any key is presnsed then program will terminate
 
-    # Store the angle and rectangle number in the list 
+    # Store the angle and rectangle number in the list
     angles.append((i, angle_degrees))
 
     # Save the image with a unique filename
-    image_filename = f'{image_folder}rotated_rectangle_{i}.png'
+    image_filename = f'{rectangles_folder}rotated_rectangle_{i}.png'
     cv2.imwrite(image_filename, image)
 
 # Save the angles list to a CSV file
@@ -68,4 +70,4 @@ with open(csv_filename, 'w', newline='') as csvfile:
     csv_writer.writerows(angles)
 
 print(f'Angles saved to {csv_filename}')
-print(f'Images saved to {image_folder}')
+print(f'Images saved to {rectangles_folder}')
