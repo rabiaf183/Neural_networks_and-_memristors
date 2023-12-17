@@ -56,7 +56,8 @@ for i in range(100):
     cv2.imshow('my_rectangle_images' , image) 
     cv2.waitKey(0) #keybard binding, if any key is presnsed then program will terminate
 
-    # Store the angle and rectangle number in the list
+    # Store the 
+    # angle and rectangle number in the list
     angles.append((i, angle_degrees))
 
     # Save the image with a unique filename
